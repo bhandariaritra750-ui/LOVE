@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Special Question For You 💕</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Particle Canvas (Floating hearts, sparkles & rose petals) -->
+  <canvas id="ambientCanvas"></canvas>
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Custom Cursor Sparkle Container -->
+  <div id="sparkleTrail"></div>
+
+  <!-- Main Container -->
+  <main class="main-wrapper">
+
+    <!-- ================= STAGE 1: THE ENVELOPE ================= -->
+    <section id="stage-envelope" class="scene active">
+      <div class="envelope-card glass-panel">
+        <div class="sparkle-badge">✨ A secret letter for you</div>
+        <h1 class="romantic-title">To Someone Incredibly Special</h1>
+        <p class="subtitle">There is something straight from my heart that I've been waiting to ask you...</p>
+
+        <!-- 3D Interactive Envelope -->
+        <div class="envelope-wrapper" id="envelopeWrapper">
+          <div class="envelope">
+            <div class="envelope-flap" id="envelopeFlap"></div>
+            <div class="envelope-letter" id="envelopeLetter">
+              <div class="letter-preview">
+                <span class="letter-heart">💌</span>
+                <p>Click the seal to read...</p>
+              </div>
+            </div>
+            <div class="envelope-front"></div>
+            <button class="wax-seal" id="waxSealBtn" aria-label="Open Love Letter">
+              <span class="seal-heart">💖</span>
+              <span class="seal-ripple"></span>
+            </button>
+          </div>
+        </div>
+
+        <p class="hint-text">Tap the beating heart seal to open 👆</p>
+      </div>
+    </section>
+
+    <!-- ================= STAGE 2: OUR MEMORY LANE & REASONS ================= -->
+    <section id="stage-journey" class="scene">
+      <div class="journey-card glass-panel">
+        <div class="step-indicator">
+          <span class="step-dot active"></span>
+          <span class="step-dot"></span>
+          <span class="step-dot"></span>
+          <span class="step-dot"></span>
+        </div>
+
+        <h2 class="journey-title" id="journeyTitle">Our Beautiful Story</h2>
+        
+        <!-- Story / Reason Carousel -->
+        <div class="carousel-container">
+          <div class="carousel-slides" id="carouselSlides">
+            <!-- Slide 1 -->
+            <div class="slide active">
+              <div class="polaroid-frame">
+                <div class="photo-box" id="photo1">
+                  <div class="photo-placeholder">
+                    <span class="emoji-hero">✨</span>
+                    <p>The First Glance</p>
+                  </div>
+                </div>
+                <div class="polaroid-caption">
+                  <p class="handwritten">"The day you walked into my life, everything became so much brighter and warmer."</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+              <div class="polaroid-frame">
+                <div class="photo-box" id="photo2">
+                  <div class="photo-placeholder">
+                    <span class="emoji-hero">🌸</span>
+                    <p>Your Sweet Smile</p>
+                  </div>
+                </div>
+                <div class="polaroid-caption">
+                  <p class="handwritten">"Your smile has this superpower — it can effortlessly turn my darkest day into pure sunshine."</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide">
+              <div class="polaroid-frame">
+                <div class="photo-box" id="photo3">
+                  <div class="photo-placeholder">
+                    <span class="emoji-hero">💫</span>
+                    <p>Little Little Things</p>
+                  </div>
+                </div>
+                <div class="polaroid-caption">
+                  <p class="handwritten">"The cute way you laugh, your sweet voice, your warm hugs... I cherish every tiny moment."</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide">
+              <div class="polaroid-frame">
+                <div class="photo-box" id="photo4">
+                  <div class="photo-placeholder">
+                    <span class="emoji-hero">🌟</span>
+                    <p>Forever & Always</p>
+                  </div>
+                </div>
+                <div class="polaroid-caption">
+                  <p class="handwritten">"You're not just my favorite person, you are my home. And I never want to leave."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <div class="carousel-nav">
+            <button class="nav-arrow-btn" id="prevSlideBtn">❮</button>
+            <span class="slide-counter" id="slideCounter">1 / 4</span>
+            <button class="nav-arrow-btn" id="nextSlideBtn">❯</button>
+          </div>
+        </div>
+
+        <button class="primary-btn glow-btn" id="goToQuestionBtn">
+          <span>Read What's On My Heart 💖</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ================= STAGE 3: THE PROPOSAL QUESTION ================= -->
+    <section id="stage-proposal" class="scene">
+      <div class="proposal-card glass-panel" id="proposalCard">
+        <div class="floating-hearts-halo">
+          <span>💕</span><span>💖</span><span>🌸</span><span>✨</span>
+        </div>
+
+        <div class="love-badge" id="proposalToTag">For My Sweetheart 🌹</div>
+        <h2 class="question-text" id="proposalQuestion">Will you be my girlfriend?</h2>
+        
+        <p class="proposal-subtext" id="proposalSubtext">
+          I want to hold your hand through every high and low, make you smile every day, and love you more than yesterday.
+        </p>
+
+        <!-- The Interactive Buttons Playground -->
+        <div class="answer-buttons-zone" id="buttonZone">
+          <button id="yesBtn" class="proposal-btn yes-btn">
+            <span class="btn-text">YES! Absolutely! 🥰</span>
+            <span class="btn-shine"></span>
+          </button>
+          
+          <button id="noBtn" class="proposal-btn no-btn">
+            <span class="btn-text" id="noBtnText">No 🙈</span>
+          </button>
+        </div>
+
+        <p class="playful-status" id="playfulStatus">Go ahead... choose carefully! 😉</p>
+      </div>
+    </section>
+
+    <!-- ================= STAGE 4: CELEBRATION & CERTIFICATE ================= -->
+    <section id="stage-celebration" class="scene">
+      <div class="celebration-card glass-panel">
+        <div class="celebration-header">
+          <div class="crown-icon">👑💖🎉</div>
+          <h1 class="celebrate-title">SHE SAID YES!</h1>
+          <p class="celebrate-subtitle">You just made me the happiest person in the entire universe! 🥹❤️</p>
+        </div>
+
+        <!-- Love Letter -->
+        <div class="love-letter">
+          <div class="letter-paper">
+            <p class="letter-to" id="letterTo">My Dearest,</p>
+            <p class="letter-text" id="letterText" data-text="From the moment you came into my life, everything felt softer, brighter and more beautiful. You are my calm on the hardest days and my favourite reason to smile. I promise to listen, to laugh with you, to hold your hand through everything, and to choose you again every single day. Thank you for saying yes. I love you more than words can say."></p>
+            <p class="letter-from">Forever yours,<br><span id="letterFrom">Yours Truly</span> 💖</p>
+          </div>
+        </div>
+
+        <!-- Reasons I love you -->
+        <div class="reasons-section">
+          <h3>Tap a heart to see why I love you 💗</h3>
+          <div class="reasons-grid">
+            <button class="reason-heart" data-reason="Your smile makes my whole day better 🌸">💗</button>
+            <button class="reason-heart" data-reason="You make even boring moments feel special ✨">💗</button>
+            <button class="reason-heart" data-reason="Your laugh is my favourite sound 🥰">💗</button>
+            <button class="reason-heart" data-reason="You care so deeply about the people you love 🤍">💗</button>
+            <button class="reason-heart" data-reason="With you, I feel at home 🏡">💗</button>
+            <button class="reason-heart" data-reason="You are simply you, and that's perfect 💕">💗</button>
+          </div>
+          <p class="reason-text" id="reasonText">Pick a heart 💞</p>
+        </div>
+
+        <div class="action-btn-row">
+          <button class="glass-pill-btn" id="replayBtn">
+            <span>Relive The Magic ✨</span>
+          </button>
+        </div>
+
+        <!-- Sweet Love Note / Love Coupons -->
+        <div class="coupons-section">
+          <h3>Claim Your Love Coupons Anytime:</h3>
+          <div class="coupons-grid">
+            <div class="coupon-ticket">
+              <span class="coupon-emoji">🍕</span>
+              <p>One Free Date Night Of Your Choice</p>
+              <button class="claim-btn">Redeem 🎁</button>
+            </div>
+            <div class="coupon-ticket">
+              <span class="coupon-emoji">💆‍♀️</span>
+              <p>Warm Back & Shoulder Massage</p>
+              <button class="claim-btn">Redeem 🎁</button>
+            </div>
+            <div class="coupon-ticket">
+              <span class="coupon-emoji">🕊️</span>
+              <p>Win Any Friendly Argument Instantly</p>
+              <button class="claim-btn">Redeem 🎁</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
